@@ -11,7 +11,7 @@ Pagination Example
 
 
 
-## Limit/offset pagination
+## Limit/Offset pagination
 At times, users face the challenge of fetching a huge number of records from a database. This causes a big problems especially in the cases where the records run into the thousands and cannot be queried by a simple select query. In this case, the concept of pagination is used where rather than taking records in large quantities at one go, the concept of taking limit and offset values to fetch records in small quantities and process them until all are retrieved from the database is used.
 Cursor-based pagination
 A cursor refers to a unique identifier for a definite record acting as a pointer to the following record the user wants to start querying to get the next results. When a cursor is implemented, the need to read rows that already been viewed is eliminated using a WHERE clause in the query which accelerates the process of reading data. This helps remove   inaccuracies in results by reading after a precise row rather than depending on the records position to be unchanged.
@@ -28,4 +28,18 @@ A cursor refers to a unique identifier for a definite record acting as a pointer
 ## Comparing Limit and Cursor based pagination
 Though cursor based pagination is considered to be more effective, limit based pagination is the easier one to implement especially in cases where data is static. In addition, as limit based incorporate a mechanism of infinite scroll, it is considered efficient whereby the users can see most of the data at a go. 
 Cursor based pagination in its part is more effective on its part as a result of various reasons. The very first of this is that instead of sending an offset parameter with the mannerisms of an index, this mode of pagination sends a cursor parameter which acts like a pointer to a specific record in the database indicating where the last page was set off ensuring no data is left out. In addition, one of the main advantages of this mode of pagination is its ability to perform data capabilities in real time. This is due to cursors not being tied down to static data hence new items can be manipulated without disturbing load procedures on each page.
+## User Guide
+It is time to get hands on and create a functional pagination example using the following technologies: GraphQL, Prisma, Photon/Lift, Nexus, Nexus-Prisma, and SQLite. Using these technologies, you can create a server with pagination running in less than 30 minutes. Here is a high-level overview of the steps that will be envolved in the process.
 
+1. [Install the Prisma Framework](#1-install-prisma-framework)
+
+
+
+
+### 1. Install Prisma Framework
+
+This will install the Prisma Framework globally on your local machine, providing a CLI for initializing Prisma applications.
+
+```
+npm install prisma2 -g
+```
