@@ -103,7 +103,7 @@ app.listen({ port: 4000 }, () =>
 ```
 ### 6. Generating Schema through GraphQL Nexus
 
-Time to build the schema - code-first. Start with the required imports - nexus: to create your GraphQL types & schema; nexus-prisma: provides the bindings between nexus & prisma. 
+Building the code should be the first thing undertaken when building the schema. Begin with the mandatory imports these being nexus and nexus prisma. Nexus helps you create types of GraphQL and schema. Nexus prisma on the other hand acts as an intermediary between nexus and the prisma environment. 
 
 ```js
 // 1. imports - index.js
@@ -112,7 +112,7 @@ const { nexusPrismaPlugin } = require('nexus-prisma')
 const { join } = require('path')
 ```
       
-Next, add the types you wish to expose in your API. The first two types created below is an *objectType* for both User and Post. This publicly exposes the id/email fields for Users and id/title/author for Posts.
+Using JavaScript, add the various types you plan on exposing in the API. From the code source shown, we handle *objectType* used in User and Post. The function is to expose the identifier fields mostly email address for Users for Posts publicly.
 
 ```js 
 // 2. user/post type - index.js
@@ -126,8 +126,7 @@ const Post = objectType({
 })
 ```
 
-Next, create a root Query using *queryType*, to start exposing queries, beginning with the posts query. Thanks to Photon and Nexus-Prisma, you have out-of-the-box for pagination and can implement it in as few lines as shown below. You have now exposed a "posts" query that can handle pagination.
-
+Start exposing queries through the use of *queryType* in turn building a root Query. The pagination environment is now ready for implementation after combining Nexus-Prisma. 
 ```js 
 // 3. query type - index.js
 const Query = queryType({
@@ -137,7 +136,7 @@ const Query = queryType({
 });
 ```
 
-Next, you create a schema using *makeSchema*, which includes your types, the nexus-prisma plugin and an outputs object. This combines all of the above types into a GraphQL Schema.
+Using your types, build a schema through nexus-prisma's plugin an outputs object and *makeSchema*. This combines all of the types above into a GraphQL Schema.
 
 ```js
 // 4. create schema - index.js
@@ -151,11 +150,4 @@ const schema = makeSchema({
     ),
   },
 });
-```
-
-Finally, you need to update the ApolloServer constructor to include the schema and photon instance. Your Photon instance is now available via the context argument.
-
-```js
-// 5. pass schema/photon - index.js
-const server = new ApolloServer({ schema, context: { photon } })
 ```
