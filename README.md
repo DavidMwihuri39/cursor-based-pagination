@@ -35,12 +35,13 @@ A cursor refers to a unique identifier for a definite record acting as a pointer
 Though cursor based pagination is considered to be more effective, limit based pagination is the easier one to implement especially in cases where data is static. In addition, as limit based incorporate a mechanism of infinite scroll, it is considered efficient whereby the users can see most of the data at a go. 
 Cursor based pagination in its part is more effective on its part as a result of various reasons. The very first of this is that instead of sending an offset parameter with the mannerisms of an index, this mode of pagination sends a cursor parameter which acts like a pointer to a specific record in the database indicating where the last page was set off ensuring no data is left out. In addition, one of the main advantages of this mode of pagination is its ability to perform data capabilities in real time. This is due to cursors not being tied down to static data hence new items can be manipulated without disturbing load procedures on each page.
 ## User Guide
-It is time to get hands on and create a functional pagination example using the following technologies: GraphQL, Prisma, Photon/Lift, Nexus, Nexus-Prisma, and SQLite. Using these technologies, you can create a server with pagination running in less than 30 minutes. Here is a high-level overview of the steps that will be envolved in the process.
+Using the information above, we can now create a functional pagination example using the following technologies: GraphQL, Prisma, Nexus, Nexus-Prisma, and SQLite. Using these technologies, you can create a server with pagination running in less than 30 minutes. Here is a high-level overview of the steps that will be involved in the process.
 
 1. [Install Prisma](#1-install-prisma)
 2. [Initialize Prisma Project and NPM Project](#2-initialize-prisma-project-and-npm-project)
 3. [Add Project Scripts](#3-add-project-scripts)
 4. [Install Dependencies](#4-install-dependencies)
+5. [Create Apollo Server](#5-create-apollo-server)
 
 
 ### 1. Install Prisma
@@ -86,4 +87,23 @@ npm install apollo-server-express     # this is the custom graphql express serve
 npm install nexus                     # this is creation of the code-first graphql schema
 npm install prisma-nexus              # customary bindings for both prisma and nexus
 npm install graphql                   # this is installation of graphql
+```
+### 5. Create Apollo Server
+Build the standard Apollo Server without any special functionalities. Use the code-first approach with GraphQL Nexus to create the schema.
+
+```js
+// index.js
+const express = require('express');
+const { ApolloServer } = require('apollo-server-express');
+
+// you will add GraphQL Nexus schema here in next step
+
+const server = new ApolloServer({ });
+
+const app = express();
+server.applyMiddleware({ app });
+
+app.listen({ port: 4000 }, () =>
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+);
 ```
