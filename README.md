@@ -101,7 +101,7 @@ app.listen({ port: 4000 }, () =>
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
 );
 ```
-### 5. Generating Schema through GraphQL Nexus
+### 6. Generating Schema through GraphQL Nexus
 
 Time to build the schema - code-first. Start with the required imports - nexus: to create your GraphQL types & schema; nexus-prisma: provides the bindings between nexus & prisma. 
 
