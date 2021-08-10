@@ -18,7 +18,8 @@ The pagination concept refers to breaking down large sets of data into small bit
 
 ## Limit/Offset pagination
 At times, users face the challenge of fetching a huge number of records from a database. This causes a big problems especially in the cases where the records run into the thousands and cannot be queried by a simple select query. In this case, the concept of pagination is used where rather than taking records in large quantities at one go, the concept of taking limit and offset values to fetch records in small quantities and process them until all are retrieved from the database is used.
-Cursor-based pagination
+
+## Cursor-based pagination
 A cursor refers to a unique identifier for a definite record acting as a pointer to the following record the user wants to start querying to get the next results. When a cursor is implemented, the need to read rows that already been viewed is eliminated using a WHERE clause in the query which accelerates the process of reading data. This helps remove   inaccuracies in results by reading after a precise row rather than depending on the records position to be unchanged.
 *Example* 
    
