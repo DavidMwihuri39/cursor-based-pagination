@@ -31,7 +31,7 @@ A cursor refers to a unique identifier for a definite record acting as a pointer
 	
 	|> where [p], p.id , ^cursor
 ```
-## Comparing Limit and Cursor based pagination
+## Comparing Limit and Cursor Based pagination
 Though cursor based pagination is considered to be more effective, limit based pagination is the easier one to implement especially in cases where data is static. In addition, as limit based incorporate a mechanism of infinite scroll, it is considered efficient whereby the users can see most of the data at a go. 
 Cursor based pagination in its part is more effective on its part as a result of various reasons. The very first of this is that instead of sending an offset parameter with the mannerisms of an index, this mode of pagination sends a cursor parameter which acts like a pointer to a specific record in the database indicating where the last page was set off ensuring no data is left out. In addition, one of the main advantages of this mode of pagination is its ability to perform data capabilities in real time. This is due to cursors not being tied down to static data hence new items can be manipulated without disturbing load procedures on each page.
 ## User Guide
