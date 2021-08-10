@@ -3,6 +3,10 @@
 The pagination concept refers to breaking down large sets of data into small bits so that it can easily be useful to both the application and the user. A good example is when searching for something in Google. Google populates results on a page then breaks the results down to multiple pages depending on the keywords used. This is a breakdown of the multiple millions of results Google has found for the query. It breaks them down so that it is easy for the user to browse through (the process referred to as pagination or organizing data into pages). In pagination, users can move sequentially, from the first page through the pages all the way to the last page.
 Pagination Example
 
+<p align="center">
+  <img width="440" height="110" src="https://github.com/chaunceyau/prisma2-nexus-pagination-example/blob/master/offset-based-example.png" alt="Offset-based Pagination Example">
+</p>
+
 
 
 
