@@ -31,7 +31,7 @@ Cursor based pagination in its part is more effective on its part as a result of
 ## User Guide
 It is time to get hands on and create a functional pagination example using the following technologies: GraphQL, Prisma, Photon/Lift, Nexus, Nexus-Prisma, and SQLite. Using these technologies, you can create a server with pagination running in less than 30 minutes. Here is a high-level overview of the steps that will be envolved in the process.
 
-1. [Install Prisma(#1-install-prisma-framework)
+1. [Install Prisma](#1-install-prisma-framework)
 
 
 
