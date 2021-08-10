@@ -78,7 +78,7 @@ In your package.json, project scripts are essential as they are needed to run th
 
 ### 4. Install Dependencies
 
-Next, you need to install the required dependencies for the project. **nexus-prisma** provides out-of-the-box support for features like **pagination, ordering and sorting** - as well as the ability to make use of `t.model/t.crud`, which can help making it **quick and easy to expose types**.
+Next, you need to install the required dependencies for the project. **nexus-prisma** is essentiall as it provides unique features such as **pagination**.
 
 ```
 npm install prisma2 --save-dev        # photon & lift
