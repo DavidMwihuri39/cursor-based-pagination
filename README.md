@@ -17,8 +17,8 @@ Cursor-based pagination
 A cursor refers to a unique identifier for a definite record acting as a pointer to the following record the user wants to start querying to get the next results. When a cursor is implemented, the need to read rows that already been viewed is eliminated using a WHERE clause in the query which accelerates the process of reading data. This helps remove   inaccuracies in results by reading after a precise row rather than depending on the records position to be unchanged.
 *Example* 
    
-   Post
-   ```
+    ```
+      Post
 	|> order_by (inserted_at: :desc)
 	
 	|> limit (10)
@@ -43,7 +43,7 @@ This installs Prisma in its entirity on your local. From this you can initialize
 ```
 npm install prisma2 -g
 ```
-### 2. Initialize Prisma Project and NPM Project
+### 2. Configure Prisma and NPM
 Inside the project directory, run the command -- *following the prompt options listed*. This will call the Prisma Framework to open a project. A wizard like sequence will begin. Once Complete, you should now view a new directory called *pagination* inside the folder *Prisma*.
 ```
 npx prisma2 init pagination-example
