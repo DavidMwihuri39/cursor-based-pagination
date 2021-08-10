@@ -4,7 +4,7 @@ The pagination concept refers to breaking down large sets of data into small bit
 Pagination Example
 
 <p align="center">
-  <img width="440" height="110" src="https://github.com/Davidmwihuri39/cursor-based-pagination/example_1.png" alt="Offset-based Pagination Example">
+  <img width="440" height="110" src="https://github.com/DavidMwihuri39/cursor-based-pagination/blob/main/example_1.png" alt="Offset-based Pagination Example">
 </p>
 
 
