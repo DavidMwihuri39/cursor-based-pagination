@@ -35,7 +35,7 @@ Using the information above, we can now create a functional pagination example u
 3. [Add Project Scripts](#3-add-project-scripts)
 4. [Install Dependencies](#4-install-dependencies)
 5. [Create Apollo Server](#5-create-apollo-server)
-6. [Generating Schema through GraphQL Nexus](#5-generating--exposing-schema-through-graphql-nexus)
+6. [Generating Schema through GraphQL Nexus](#6-generating--exposing-schema-through-graphql-nexus)
 
 
 ### 1. Install Prisma
