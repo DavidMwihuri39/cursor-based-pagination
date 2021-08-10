@@ -9,13 +9,6 @@ The pagination concept refers to breaking down large sets of data into small bit
 </p>
 
 
-
-
-
-
-
-
-
 ## Limit/Offset pagination
 At times, users face the challenge of fetching a huge number of records from a database. This causes a big problems especially in the cases where the records run into the thousands and cannot be queried by a simple select query. In this case, the concept of pagination is used where rather than taking records in large quantities at one go, the concept of taking limit and offset values to fetch records in small quantities and process them until all are retrieved from the database is used.
 
@@ -42,6 +35,7 @@ Using the information above, we can now create a functional pagination example u
 3. [Add Project Scripts](#3-add-project-scripts)
 4. [Install Dependencies](#4-install-dependencies)
 5. [Create Apollo Server](#5-create-apollo-server)
+6. [Generating Schema through GraphQL Nexus](#5-generating--exposing-schema-through-graphql-nexus)
 
 
 ### 1. Install Prisma
@@ -106,4 +100,62 @@ server.applyMiddleware({ app });
 app.listen({ port: 4000 }, () =>
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
 );
+```
+### 5. Generating Schema through GraphQL Nexus
+
+Time to build the schema - code-first. Start with the required imports - nexus: to create your GraphQL types & schema; nexus-prisma: provides the bindings between nexus & prisma. 
+
+```js
+// 1. imports - index.js
+const { objectType, queryType, makeSchema } = require("nexus")
+const { nexusPrismaPlugin } = require('nexus-prisma')
+const { join } = require('path')
+```
+      
+Next, add the types you wish to expose in your API. The first two types created below is an *objectType* for both User and Post. This publicly exposes the id/email fields for Users and id/title/author for Posts.
+
+```js 
+// 2. user/post type - index.js
+const User = objectType({
+  name: 'User',
+  definition(t) { t.model.id(), t.model.email() }
+})
+const Post = objectType({
+  name: 'Post',
+  definition(t) { t.model.id(), t.model.title(), t.model.author() }
+})
+```
+
+Next, create a root Query using *queryType*, to start exposing queries, beginning with the posts query. Thanks to Photon and Nexus-Prisma, you have out-of-the-box for pagination and can implement it in as few lines as shown below. You have now exposed a "posts" query that can handle pagination.
+
+```js 
+// 3. query type - index.js
+const Query = queryType({
+  definition(t) {
+    t.crud.posts({ pagination: true })
+  }
+});
+```
+
+Next, you create a schema using *makeSchema*, which includes your types, the nexus-prisma plugin and an outputs object. This combines all of the above types into a GraphQL Schema.
+
+```js
+// 4. create schema - index.js
+const schema = makeSchema({
+  types: [Query, User, Post],
+  plugins: [nexusPrismaPlugin()],
+  outputs: {
+    typegen: join(
+      __dirname,
+      '../node_modules/@types/nexus-typegen/index.d.ts',
+    ),
+  },
+});
+```
+
+Finally, you need to update the ApolloServer constructor to include the schema and photon instance. Your Photon instance is now available via the context argument.
+
+```js
+// 5. pass schema/photon - index.js
+const server = new ApolloServer({ schema, context: { photon } })
 ```
