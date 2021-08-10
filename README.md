@@ -81,11 +81,9 @@ In your package.json, project scripts are essential as they are needed to run th
 Next, you need to install the required dependencies for the project. **nexus-prisma** is essentiall as it provides unique features such as **pagination**.
 
 ```
-npm install prisma2 --save-dev        # photon & lift
-npm install express                   # standard node.js server
-npm install apollo-server-express     # standard graphql express server
-npm install nexus                     # code-first graphql schema creation
-npm install nexus-prisma              # bindings for nexus & prisma
-npm install graphql                   # required peer dependency
+npm install express                   # this is the custome node.js server
+npm install apollo-server-express     # this is the custom graphql express server
+npm install nexus                     # this is creation of the code-first graphql schema
+npm install prisma-nexus              # customary bindings for both prisma and nexus
+npm install graphql                   # this is installation of graphql
 ```
-You should notice this probably unfamiliar line print in the console: *"Downloading darwin binary for query-engine and migration-engine"*. This is the postinstallation hook running and generating the Photon client.
