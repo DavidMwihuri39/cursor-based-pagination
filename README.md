@@ -44,17 +44,16 @@ This installs Prisma in its entirity on your local. From this you can initialize
 npm install prisma2 -g
 ```
 ### 2. Initialize Prisma Project and NPM Project
-In your project directory, run the command below -- *following the prompt options listed* -- which will initialize a project using the Prisma Framework. After the following the prompts, you should now have a directory called *pagination-example* with a *prisma* folder inside.
+Inside the project directory, run the command -- *following the prompt options listed*. This will call the Prisma Framework to open a project. A wizard like sequence will begin. Once Complete, you should now view a new directory called *pagination* inside the folder *Prisma*.
 ```
 npx prisma2 init pagination-example
   - blank project
   - SQLite
-  - include photon and lift -> confirm
-  - JavaScript - feel free to use TypeScript 
-  - Just the prisma schema
+  - CoffeeScript
+  - Prisma schema
 ```
 
-You also need to create package.json for your project via running `npm init -y` inside of the *pagination-example* directory. This will allow you to add scripts and dependencies (e.g. apollo, nexus, etc) to the project.
+In addition, create package.json for the project. You will achieve this by running `npm init -y` inside the directory called *pagination*. The goal here is acting as an interface to add scripts and dependencies.
 
 ```
 cd pagination-example
