@@ -79,7 +79,7 @@ In your package.json, project scripts are essential as they are needed to run th
 
 ### 4. Install Dependencies
 
-Next, you need to install the required dependencies for the project. **nexus-prisma** is essentiall as it provides unique features such as **pagination**.
+Next, you need to install the required dependencies for the project. **Nexus-prisma** is essential as it provides unique features such as **pagination**.
 
 ```
 npm install express                   # this is the custome node.js server
