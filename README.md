@@ -32,7 +32,7 @@ Cursor based pagination in its part is more effective on its part as a result of
 It is time to get hands on and create a functional pagination example using the following technologies: GraphQL, Prisma, Photon/Lift, Nexus, Nexus-Prisma, and SQLite. Using these technologies, you can create a server with pagination running in less than 30 minutes. Here is a high-level overview of the steps that will be envolved in the process.
 
 1. [Install Prisma](#1-install-prisma-framework)
-
+2. [Initialize Prisma Project and NPM Project](#2-initialize-prisma-project-and-npm-project)
 
 
 
@@ -42,4 +42,21 @@ This installs Prisma in its entirity on your local. From this you can initialize
 
 ```
 npm install prisma2 -g
+```
+### 2. Initialize Prisma Project and NPM Project
+In your project directory, run the command below -- *following the prompt options listed* -- which will initialize a project using the Prisma Framework. After the following the prompts, you should now have a directory called *pagination-example* with a *prisma* folder inside.
+```
+npx prisma2 init pagination-example
+  - blank project
+  - SQLite
+  - include photon and lift -> confirm
+  - JavaScript - feel free to use TypeScript 
+  - Just the prisma schema
+```
+
+You also need to create package.json for your project via running `npm init -y` inside of the *pagination-example* directory. This will allow you to add scripts and dependencies (e.g. apollo, nexus, etc) to the project.
+
+```
+cd pagination-example
+npm init -y
 ```
