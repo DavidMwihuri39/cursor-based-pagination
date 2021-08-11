@@ -101,7 +101,7 @@ const app = express();
 server.applyMiddleware({ app });
 
 app.listen({ port: 5000 }, () =>
-  console.log( Server lauched at http://localhost:5000${server.graphqlPath}`)
+  console.log( Server launched at http://localhost:5000${server.graphqlPath}`)
 );
 ```
 ### 7. Generating Schema through GraphQL Nexus
