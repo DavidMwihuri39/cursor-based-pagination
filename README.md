@@ -32,7 +32,7 @@ Using the information above, we can now create a functional pagination example u
 
 1. [Install Prisma](#1-install-prisma)
 2. [Configure Prisma](#2-Configure-prisma)
-3. [Configure NPM](#3-npm-project)
+3. [Configure NPM](#3-configure-NPM)
 4. [Add Project Scripts](#4-add-project-scripts)
 5. [Install Dependencies](#5-install-dependencies)
 6. [Create Apollo Server](#6-create-apollo-server)
