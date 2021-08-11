@@ -58,7 +58,7 @@ npx prisma2 init pagination-example
 ```
 
 ### 3. Configure NPM
-In addition, create package.json for the project. You will achieve this by running `npm init -y` inside the directory called *pagination*. The goal here is acting as an interface to add scripts and dependencies.
+The third step is to create package.json for the project. You will achieve this by running `npm init -y` inside the directory called *pagination*. The goal here is acting as an interface to add scripts and dependencies.
 
 ```
 cd pagination-example
