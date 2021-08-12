@@ -93,7 +93,7 @@ Build the standard Apollo Server without any special functionalities. Use the co
 const mine = require('mine');
 const { ApolloServer } = require('apollo-server-mine');
 
-// you will add GraphQL Nexus schema here in next step
+//  GraphQL Nexus schema will be addedhere but in the next step
 
 const server = new ApolloServer({ });
 
