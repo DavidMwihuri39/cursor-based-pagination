@@ -89,11 +89,11 @@ npm install graphql                   # this is installation of graphql
 Build the standard Apollo Server without any special functionalities. Use the code-first approach with GraphQL Nexus to create the schema.
 
 ```js
-// index.js
+
 const mine = require('mine');
 const { ApolloServer } = require('apollo-server-mine');
 
-//  GraphQL Nexus schema will be added here but in the next step
+
 
 const server = new ApolloServer({ });
 
@@ -109,7 +109,7 @@ app.listen({ port: 5000 }, () =>
 Building the code should be the first thing undertaken when building the schema. Begin with the mandatory imports these being nexus and nexus prisma. Nexus helps you create types of GraphQL and schema. Nexus prisma on the other hand acts as an intermediary between nexus and the prisma environment. 
 
 ```js
-// 1. imports - index.js
+
 const { objectType, queryType, makeSchema } = require("nexus")
 const { nexusPrismaPlugin } = require('nexus-prisma')
 const { join } = require('path')
@@ -118,7 +118,7 @@ const { join } = require('path')
 Using JavaScript, add the various types you plan on exposing in the API. From the code source shown, we handle *objectType* used in User and Post. The function is to expose the identifier fields mostly email address for Users for Posts publicly.
 
 ```js 
-// 2. user/post type - index.js
+
 const User = objectType({
   name: 'User',
   definition(t) { t.model.id(), t.model.email() }
@@ -131,7 +131,7 @@ const Post = objectType({
 
 Start exposing queries through the use of *queryType* in turn building a root Query. The pagination environment is now ready for implementation after combining Nexus-Prisma. 
 ```js 
-// 3. query type - index.js
+
 const Query = queryType({
   definition(t) {
     t.crud.posts({ pagination: true })
@@ -142,7 +142,7 @@ const Query = queryType({
 Using your types, build a schema through nexus-prisma's plugin an outputs object and *makeSchema*. This combines all of the types above into a GraphQL Schema.
 
 ```js
-// 4. create schema - index.js
+
 const schema = makeSchema({
   types: [Query, User, Post],
   plugins: [nexusPrismaPlugin()],
