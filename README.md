@@ -79,8 +79,8 @@ In your package.json, project scripts are essential as they are needed to run th
 Next, you need to install the required dependencies for the project. **Nexus-prisma** is essential as it provides unique features such as **pagination**.
 
 ```
-npm install express                   # this is the custome node.js server
-npm install apollo-server-express     # this is the custom graphql express server
+npm install mine                   # this is the custome node.js server
+npm install apollo-server-mine     # this is the custom graphql mine server
 npm install nexus                     # this is creation of the code-first graphql schema
 npm install prisma-nexus              # customary bindings for both prisma and nexus
 npm install graphql                   # this is installation of graphql
@@ -90,14 +90,14 @@ Build the standard Apollo Server without any special functionalities. Use the co
 
 ```js
 // index.js
-const express = require('express');
-const { ApolloServer } = require('apollo-server-express');
+const mine = require('mine');
+const { ApolloServer } = require('apollo-server-mine');
 
 // you will add GraphQL Nexus schema here in next step
 
 const server = new ApolloServer({ });
 
-const app = express();
+const app = mine();
 server.applyMiddleware({ app });
 
 app.listen({ port: 5000 }, () =>
